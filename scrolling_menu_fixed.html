@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>스크롤 특정위치 메뉴고정</title>
+		<style>
+			body {margin:0px;padding:0px;}
+			h1{text-align:center;}
+			.nav_menu {text-align:center;background:#ff6600;padding:10px 0px;width:100%;}
+			.bodyContent {height:2000px;}
+			.addFixed {position:fixed;top:0px;}
+		</style>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+			$( document ).ready( function() {
+				var jbOffset = $( '.nav_menu' ).offset();
+				$( window ).scroll( function() {
+					if ( $( document ).scrollTop() > jbOffset.top ) {
+						$( '.nav_menu' ).addClass( 'addFixed' );
+						$( '.hiddenBox' ).show();
+					} else {
+						$( '.nav_menu' ).removeClass( 'addFixed' );
+						$( '.hiddenBox' ).hide();
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Top Logo</h1>
+		<div class="nav_menu">
+			<p>
+				<a href="javascript:;">Menu1</a>
+				<a href="javascript:;">Menu2</a>
+				<a href="javascript:;">Menu3</a>
+				<a href="javascript:;">Menu4</a>
+			</p>
+		</div>
+		<div class="hiddenBox" style="display:none;height:73px;"></div>
+
+		<div class="bodyContent">
+			body contents
+		</div>
+	</body>
+</html>
